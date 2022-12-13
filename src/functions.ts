@@ -22,3 +22,16 @@ export const convertDataPeopleToSearchString = (
   });
   return peopleContent.join(", ");
 };
+
+export type Topics = {
+  "Topic Name": string;
+  "Title (from Video)"?: string[];
+  "vimeoId (from Video)"?: string[];
+};
+
+export const getTopicSubset = (topics: Topics[]): Topics[] => {
+  const subsetNames = ["opportunity", "sell & support", "business model"];
+  return topics.filter((topic) =>
+    subsetNames.includes((topic["Topic Name"] ?? "").toLowerCase())
+  );
+};
