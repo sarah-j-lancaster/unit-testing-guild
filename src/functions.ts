@@ -14,8 +14,10 @@ export const convertDataPeopleToSearchString = (
 ): string => {
   const peopleContent = people.map((p) => {
     const title = `${p.title}:`;
-    const peopleStrings = p.people.map((q) => {
-      return `${q.name} - ${q.role}`;
+    const peopleStrings = p.people.map((q, index) => {
+      const isSolo = p.people.length === 1;
+      const isFormatted = !isSolo && index !== p.people.length - 1;
+      return `${q.name} - ${q.role}${isFormatted ? "," : ""}`;
     });
     const content = [title, ...peopleStrings];
     return content.join(" ");
