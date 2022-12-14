@@ -24,7 +24,7 @@ export const convertDataPeopleToSearchString = (
 };
 
 export type Topics = {
-  "Topic Name": string;
+  "Topic Name"?: string;
   "Title (from Video)"?: string[];
   "vimeoId (from Video)"?: string[];
 };
